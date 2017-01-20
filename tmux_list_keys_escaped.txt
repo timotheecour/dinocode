@@ -73,8 +73,7 @@ bind-key -r -T prefix C-Up             resize-pane -U
 bind-key -r -T prefix C-Down           resize-pane -D
 bind-key -r -T prefix C-Left           resize-pane -L
 bind-key -r -T prefix C-Right          resize-pane -R
-# TODO: this gives `no mouse target`
-#bind-key    -T root   MouseDown1Pane   select-pane -t = ; send-keys -M
+bind-key    -T root   MouseDown1Pane   select-pane -t = \; send-keys -M
 bind-key    -T root   MouseDown1Status select-window -t =
 bind-key    -T root   MouseDown3Pane   if-shell -F -t = '#{mouse_any_flag}' "select-pane -t=; send-keys -M" "select-pane -mt="
 bind-key    -T root   MouseDrag1Pane   if-shell -F -t = '#{mouse_any_flag}' "if -Ft= "#{pane_in_mode}" "copy-mode -M" "send-keys -M"" "copy-mode -M"
