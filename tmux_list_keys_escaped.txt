@@ -1,3 +1,5 @@
+## See https://github.com/tmux/tmux/issues/729: How to reset key bindings to default? #729
+
 bind-key    -T prefix C-b              send-prefix
 bind-key    -T prefix C-o              rotate-window
 bind-key    -T prefix C-z              suspend-client
