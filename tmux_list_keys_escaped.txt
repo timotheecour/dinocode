@@ -76,8 +76,10 @@ bind-key -r -T prefix C-Right          resize-pane -R
 bind-key    -T root   MouseDown1Pane   select-pane -t = \; send-keys -M
 bind-key    -T root   MouseDown1Status select-window -t =
 bind-key    -T root   MouseDown3Pane   if-shell -F -t = '#{mouse_any_flag}' "select-pane -t=; send-keys -M" "select-pane -mt="
-bind-key    -T root   MouseDrag1Pane   if-shell -F -t = '#{mouse_any_flag}' "if -Ft= "#{pane_in_mode}" "copy-mode -M" "send-keys -M"" "copy-mode -M"
+# Someone also was wondering how to fix here: http://tmux-users.narkive.com/dTFVvLMh/is-it-possible-to-have-a-binding-that-brings-back-mouse-behavior
+bind-key    -T root   MouseDrag1Pane   if-shell -F -t = '#{mouse_any_flag}' "if -Ft= '#{pane_in_mode}' 'copy-mode -M' 'send-keys -M' " "copy-mode -M"
+
 bind-key    -T root   MouseDrag1Border resize-pane -M
-bind-key    -T root   WheelUpPane      if-shell -F -t = '#{mouse_any_flag}' "send-keys -M" "if -Ft= "#{pane_in_mode}" "send-keys -M" "copy-mode -et=""
+bind-key    -T root   WheelUpPane      if-shell -F -t = '#{mouse_any_flag}' "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'copy-mode -et=' "
 bind-key    -T root   WheelUpStatus    previous-window
 bind-key    -T root   WheelDownStatus  next-window
